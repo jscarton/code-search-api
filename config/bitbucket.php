@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'default' => 'main',
+    'default' => 'alternative',
 
     /*
     |--------------------------------------------------------------------------
@@ -50,8 +50,8 @@ return [
         ],
 
         'alternative' => [
-            'username' => '',
-            'password' => '',
+            'username' => env('BITBUCKET_USER', ''),
+            'password' => env('BITBUCKET_PASSWORD', ''),
             'method'   => 'basic',
             // 'logging'  => false,
             // 'baseUrl'  => 'https://api.bitbucket.org',

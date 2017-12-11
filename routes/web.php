@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	response()->json(App\CodeSearchApi::getInstance()->search(['hello'=>'world']));
+    
 });
