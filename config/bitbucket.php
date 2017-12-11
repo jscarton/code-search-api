@@ -50,8 +50,8 @@ return [
         ],
 
         'alternative' => [
-            'username' => 'solucioneswebmedia',
-            'password' => 'jv4nj053',
+            'username' => '',
+            'password' => '',
             'method'   => 'basic',
             // 'logging'  => false,
             // 'baseUrl'  => 'https://api.bitbucket.org',
