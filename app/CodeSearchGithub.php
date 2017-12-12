@@ -34,7 +34,6 @@ class CodeSearchGithub extends CodeSearchApiWrapper
         if (isset($results->total_count)){
             $formated_results=[
          		'total_hits'=>$results->total_count,
-         		'has_more_results'=>!$results->incomplete_results,
          		'resultCount'=>count($results->items),
          		'hits'=>[]
          	];
