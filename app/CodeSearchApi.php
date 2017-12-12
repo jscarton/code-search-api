@@ -20,9 +20,17 @@ class CodeSearchApi
 	public function search($params=[])
 	{
 		$results=[];		
-		foreach ($this->services as $key => $service) {
+		$globalStartTime=time();
+		foreach ($this->services as $key => $service) {			
+			$partialStartTime=time();	
 			$results[$key]=$service->search($params);
+			$partialEndTime=time();
+			if (isset($params['debug']) && $params['debug']=='1')
+				$results[$key]['time_elapsed_in_seconds']=$partialEndTime-$partialStartTime;
 		}
+		$globalEndTime=time();
+		if (isset($params['debug']) && $params['debug']=='1')
+				$results['time_elapsed_in_seconds']=$globalEndTime-$globalStartTime;
 		return $results;
 	}
  

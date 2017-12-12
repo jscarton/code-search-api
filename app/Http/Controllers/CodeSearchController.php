@@ -19,7 +19,17 @@ class CodeSearchController extends BaseController
     		$page=$request->query('page');
     	if ($request->query('per_page',false))
     		$per_page=$request->query('per_page');
-    	$params=['q'=>$q,'page'=>$page,'per_page'=>$per_page];
-    	return \App\CodeSearchApi::getInstance()->search($params);
+    	$params=[
+    			'q'=>$q,
+    			'page'=>$page,
+    			'per_page'=>$per_page,
+    			'sort'=>$request->query('sort','score'),
+    			'order'=>$request->query('order','desc'),
+    			'extra'=>$request->query('extra','false'),
+    			'debug'=>$request->query('debug','false')];
+    	$results=\App\CodeSearchApi::getInstance()->search($params);
+    	if (isset($params['debug']) && $params['debug']=='1')
+    		$results['parameters']=$params;
+    	return $results;
     }
 }

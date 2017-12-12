@@ -21,7 +21,7 @@ class CodeSearchGithub extends CodeSearchApiWrapper
                 $params['per_page']=25;
     		$response = $this->github->get('/search/code',$params,['Authorization'=>'BEARER '.env('GITHUB_API_TOKEN')]);
     		$result = $this->github->decode($response);
-    		return $this->format($result);
+    		return $this->format($result,$params);
         }
         catch (\Exception $e)
         {
@@ -29,24 +29,29 @@ class CodeSearchGithub extends CodeSearchApiWrapper
             
         }
     }
-    public function format($results)
+    public function format($results,$params)
     {
         if (isset($results->total_count)){
             $formated_results=[
          		'total_hits'=>$results->total_count,
-         		'resultCount'=>count($results->items),
+                'page'=>isset($params['page'])&&!is_null($params['page'])?$params['page']:"1",
+         		'resultCount'=>count($results->items),                
          		'hits'=>[]
          	];
          	foreach ($results->items as $hit) {
-         		$formated_results['hits'][]=[
-         			'file'=>$hit->name,
-         			'fileUrl'=>$hit->html_url,
-         			'repository'=>$hit->repository->name,
-         			'repositoryUrl'=>$hit->repository->html_url,
-         			'owner'=>$hit->repository->owner->login,
-         			'ownerUrl'=>$hit->repository->owner->html_url,
-         			'score'=>$hit->score
-         		];
+         		$hit_data=[
+                    'owner'=>$hit->repository->owner->login,
+                    'repository'=>$hit->repository->name,
+                    'file'=>$hit->name,                    
+                ];
+                if (isset($params['extra']) && $params['extra']=='1'){
+                    $hit_data['repositoryUrl']=$hit->repository->html_url;
+                    $hit_data['ownerUrl']=$hit->repository->owner->html_url;
+                    $hit_data['fileUrl']=$hit->html_url;                    
+                    $hit_data['score']=$hit->score;
+                    
+                }
+                $formated_results['hits'][]=$hit_data;
          	}
         }
         else

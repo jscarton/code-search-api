@@ -5,5 +5,5 @@ namespace App;
 abstract class CodeSearchApiWrapper
 {
     public abstract function search($params);
-    public abstract function format($results);
+    public abstract function format($results,$params);
 }
