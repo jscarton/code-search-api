@@ -8,6 +8,7 @@ You should have a laravel development environment to test this API.
 * Clone this repo
 * Run composer install command
 * copy .env.example file to .env then edit the file an fill the GITHUB_API_TOKEN variable with your own github API token.
+* run php artisan key:generate to create the app encryption key.
 * you could run phpunit command to run the unit tests and make sure all is OK, test are in the /tests folder
 * configure your webserver to point the webroot to the /public folder
 * point your webserver to the app URL. You should see a documentation page at this point.
