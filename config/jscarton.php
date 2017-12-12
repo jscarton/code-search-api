@@ -5,19 +5,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Standards Tree
+    | Services
     |--------------------------------------------------------------------------
     |
-    | Versioning an API with Dingo revolves around content negotiation and
-    | custom MIME types. A custom type will belong to one of three
-    | standards trees, the Vendor tree (vnd), the Personal tree
-    | (prs), and the Unregistered tree (x).
+    | Here you will define which services are enabled for code search.
+    | You should create CodeSearchApiWrapper descendant class
+    | named as "CodeSearch{ServiceName}". 
     |
-    | By default the Unregistered tree (x) is used, however, should you wish
-    | to you can register your type with the IANA. For more details:
-    | https://tools.ietf.org/html/rfc6838
+    | in example for github the class name for the wrapper is CodeSearchGithub.
     |
+    | Currently supported services are: Github and Bitbucket    
     */
 
-    'services' => ['Github','Bitbucket']
+    'services' => ['Github']
 ];

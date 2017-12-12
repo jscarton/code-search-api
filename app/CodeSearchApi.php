@@ -19,11 +19,10 @@ class CodeSearchApi
 
 	public function search($params=[])
 	{
-		$results=[];
+		$results=[];		
 		foreach ($this->services as $key => $service) {
 			$results[$key]=$service->search($params);
 		}
-		var_dump($results);
 		return $results;
 	}
  

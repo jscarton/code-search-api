@@ -8,11 +8,9 @@
         "php": ">=7.0.0",
         "dingo/api": "2.0.0-alpha1",
         "fideloper/proxy": "~3.3",
-        "graham-campbell/bitbucket": "^2.1",
-        "graham-campbell/github": "^6.1",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "php-http/guzzle6-adapter": "^1.1"
+        "milo/github-api": "^1.4"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

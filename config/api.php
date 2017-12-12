@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'prefix' => env('API_PREFIX', 'jscarton-codesearch'),
+    'prefix' => env('API_PREFIX', 'jscarton/codesearch'),
 
     /*
     |--------------------------------------------------------------------------
