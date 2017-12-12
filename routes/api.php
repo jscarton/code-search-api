@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 */
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
+	$api->get('search', 'App\Http\Controllers\CodeSearchController@index');
 	$api->get('search/{q}', 'App\Http\Controllers\CodeSearchController@index');
 	$api->get('search/{q}/{page}', 'App\Http\Controllers\CodeSearchController@index');
 	$api->get('search/{q}/{page}/{per_page}', 'App\Http\Controllers\CodeSearchController@index');
