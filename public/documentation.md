@@ -7,15 +7,15 @@ Get a JSON representation of all the hits of an user-defined search performed by
 
 You could include the main search parameters (q, page and per_page) both in the url or as query string parameters. In example:The following queries to the API are all valid
 
-* /jscarton/code/search/hello+world (search files containing "hello world" in every available service, will return the first 25 results by default sorted by score in order desc)
+/jscarton/code/search/hello+world (search files containing "hello world" in every available service, will return the first 25 results by default sorted by score in order desc)
 
-* /jscarton/code/search/hello+world/2 (the same as above but will return the results of page 2)
+/jscarton/code/search/hello+world/2 (the same as above but will return the results of page 2)
 
-* /jscarton/code/search/hello+world/2/10 (this one will return the page 2 of the search results but only 10 hits per page)
+/jscarton/code/search/hello+world/2/10 (this one will return the page 2 of the search results but only 10 hits per page)
 
-* /jscarton/code/search/hello+world?page=2&per_page=10 (the same as above)
+/jscarton/code/search/hello+world?page=2&per_page=10 (the same as above)
 
-* /jscarton/code/search/?q=hello+world&page=2&per_page=10 (the same as above)
+/jscarton/code/search/?q=hello+world&page=2&per_page=10 (the same as above)
 
 + Parameters
     + q: (string, required) - This is the main parameter to perform a search and the only one required. You could write your query right as part of the URL (/jscarton/code/search/hello+world) or as a query string parameter (/jscarton/code/search/?q=hello+world)
