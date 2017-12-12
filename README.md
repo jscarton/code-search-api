@@ -136,3 +136,15 @@ return [
     'services' => ['Github']
 ];
 ```
+
+# Thanks to...
+
+I want to say thank you to the devs of the following projects used to develope this project.
+
+* [Laravel Framework](https://github.com/laravel/laravel)
+
+* [Dingo API - A RESTful API package for the Laravel and Lumen frameworks.](https://github.com/dingo/api)
+
+* [A CommonMark wrapper for Laravel 5](https://github.com/GrahamCampbell/Laravel-Markdown)
+
+* [Github API Easy Access](https://github.com/milo/github-api)
