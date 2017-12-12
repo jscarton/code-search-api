@@ -2,15 +2,38 @@
 
 namespace App;
 use Milo\Github\Api;
+/**
+ *
+ *  Implements the Github code search api
+ *
+ */
 class CodeSearchGithub extends CodeSearchApiWrapper
 {
+    /**
+     *
+     *  Holds the github API client
+     *
+     */
 	protected $github;
 
+    /**
+     *
+     *  Class constructor.
+     * 
+     *  To instantiate and object of this class use: App::make("App\CodeSearchGithub"). This will inject the $github object.
+     *
+     */
     public function __construct(Api $github)
     {
         $this->github = $github;
     }     
-    
+    /**
+     *
+     *  Search method.
+     * 
+     *  The expected params are q, page, per_page and also you can use the github API query modifiers
+     *
+     */
     public function search($params=[])
     {        
         try{
@@ -29,6 +52,13 @@ class CodeSearchGithub extends CodeSearchApiWrapper
             
         }
     }
+    /**
+     *
+     *  Formats the output.
+     * 
+     *  transform github API results into Jscarton's output format
+     *
+     */
     public function format($results,$params)
     {
         if (isset($results->total_count)){

@@ -14,7 +14,7 @@ return [
     |
     | in example for github the class name for the wrapper is CodeSearchGithub.
     |
-    | Currently supported services are: Github and Bitbucket    
+    | Currently supported services are: Github    
     */
 
     'services' => ['Github']

@@ -2,11 +2,31 @@
 
 namespace App;
 use Illuminate\Support\Facades\App;
+
+/**
+ *
+ *	Implements the code search api entry point
+ *
+ */
 class CodeSearchApi
 {
-	// Hold the class instance.
+	/**
+	 *
+	 *	Hold the singleton instance
+	 *
+	 */
   	private static $instance = null;
+  	/**
+	 *
+	 *	Available service providers
+	 *
+	 */
 	private $services=[];
+	/**
+	 *
+	 *	Initializes the CodeSearchApi object
+	 *
+	 */
 	private function __construct()
 	{
 		$available_services=config('jscarton.services');
@@ -17,6 +37,11 @@ class CodeSearchApi
 		}
 	}
 
+	/**
+	 *
+	 *	Perform the search using every available service
+	 *
+	 */
 	public function search($params=[])
 	{
 		$results=[];		
@@ -33,9 +58,12 @@ class CodeSearchApi
 				$results['time_elapsed_in_seconds']=$globalEndTime-$globalStartTime;
 		return $results;
 	}
- 
-	// The object is created from within the class itself
-	// only if the class has no instance.
+
+	/**
+	 *
+	 *	The object is created from within the class itself only if the class has no instance.
+	 *
+	 */ 	 
 	public static function getInstance()
 	{
 		if (self::$instance == null)
