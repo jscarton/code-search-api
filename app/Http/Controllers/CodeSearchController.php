@@ -62,6 +62,7 @@ class CodeSearchController extends BaseController
 
     public function logger(Request $request)
     {
-        error_log('le pego');
+        $req=$request->all();
+        error_log('API LOG:'.json_encode($req));
     }
 }
