@@ -59,4 +59,9 @@ class CodeSearchController extends BaseController
     		$results['parameters']=$params;
     	return $results;
     }
+
+    public function logger(Request $request)
+    {
+        error_log('le pego');
+    }
 }
